@@ -1,4 +1,17 @@
 KY040.OnPinPressed(DigitalPin.P14, function () {
+    Shoot()
+})
+function Show_Enemy () {
+    callimatrix.SetMatrixColorbright(0xff0000, 7, Enemy)
+    callimatrix.callimatrix_show()
+}
+function Show_Base () {
+    callimatrix.SetMatrixColorbright(0x000000, 0, Pos + 1, cbrightness.hp6)
+    callimatrix.SetMatrixColorbright(0x000000, 0, Pos - 1, cbrightness.hp6)
+    callimatrix.SetMatrixColorbright(0x00ff00, 0, Pos, cbrightness.hp6)
+    callimatrix.callimatrix_show()
+}
+function Shoot () {
     basic.showIcon(IconNames.Sword)
     for (let index = 0; index <= 7; index++) {
         callimatrix.SetMatrixColorbright(0xffff00, index + 1, Pos, cbrightness.hp2)
@@ -13,7 +26,7 @@ KY040.OnPinPressed(DigitalPin.P14, function () {
     }
     basic.pause(200)
     basic.clearScreen()
-})
+}
 KY040.onTurned(direction.clockwise, function () {
     Pos += 1
     if (Pos >= 7) {
@@ -50,15 +63,8 @@ callimatrix.callimatrix_show()
 Enemy = randint(0, 7)
 basic.pause(1000)
 basic.forever(function () {
-    callimatrix.SetMatrixColorbright(0xff0000, 7, Enemy)
-    callimatrix.callimatrix_show()
+    Show_Enemy()
 })
 basic.forever(function () {
-    callimatrix.SetMatrixColorbright(0x000000, 0, Pos + 1, cbrightness.hp6)
-    callimatrix.SetMatrixColorbright(0x000000, 0, Pos - 1, cbrightness.hp6)
-    callimatrix.SetMatrixColorbright(0x00ff00, 0, Pos, cbrightness.hp6)
-    callimatrix.callimatrix_show()
-})
-control.inBackground(function () {
-	
+    Show_Base()
 })
