@@ -4,6 +4,8 @@ KY040.OnPinPressed(DigitalPin.P14, function () {
         callimatrix.SetMatrixColorbright(0xffff00, index + 1, Pos, cbrightness.hp2)
         callimatrix.callimatrix_show()
         basic.pause(500)
+        callimatrix.SetMatrixColorbright(0x000000, index + 1, Pos, cbrightness.hp2)
+        callimatrix.callimatrix_show()
     }
     basic.pause(200)
     basic.clearScreen()
