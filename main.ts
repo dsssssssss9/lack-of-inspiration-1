@@ -5,6 +5,14 @@ function Show_Enemy () {
     callimatrix.SetMatrixColorbright(0xff0000, 7, Enemy)
     callimatrix.callimatrix_show()
 }
+function Move_Right () {
+    Pos += -1
+    if (Pos <= 0) {
+        Pos = 0
+    }
+    basic.pause(25)
+    basic.clearScreen()
+}
 function Show_Base () {
     callimatrix.SetMatrixColorbright(0x000000, 0, Pos + 1, cbrightness.hp6)
     callimatrix.SetMatrixColorbright(0x000000, 0, Pos - 1, cbrightness.hp6)
@@ -28,12 +36,7 @@ function Shoot () {
     basic.clearScreen()
 }
 KY040.onTurned(direction.clockwise, function () {
-    Pos += 1
-    if (Pos >= 7) {
-        Pos = 7
-    }
-    basic.pause(25)
-    basic.clearScreen()
+    Move_Left()
 })
 function Hit () {
     basic.showIcon(IconNames.Angry)
@@ -44,13 +47,16 @@ function Hit () {
     basic.clearScreen()
 }
 KY040.onTurned(direction.counterclockwise, function () {
-    Pos += -1
-    if (Pos <= 0) {
-        Pos = 0
+    Move_Right()
+})
+function Move_Left () {
+    Pos += 1
+    if (Pos >= 7) {
+        Pos = 7
     }
     basic.pause(25)
     basic.clearScreen()
-})
+}
 let Enemy = 0
 let Pos = 0
 basic.showIcon(IconNames.Angry)
