@@ -1,6 +1,19 @@
 KY040.OnPinPressed(DigitalPin.P14, function () {
     basic.showIcon(IconNames.No)
+    callimatrix.writeImageRGB(callimatrix.matrix8x8(`
+        # # # # # # # #
+        # . . . . . . #
+        # . # # # # . #
+        # . # . . # . #
+        # . # . . # . #
+        # . # # # # . #
+        # . . . . . . #
+        # # # # # # # #
+        `), 0xff0000, cbrightness.hp6)
+    callimatrix.callimatrix_show()
     basic.pause(100)
+    callimatrix.callimatrix_del()
+    callimatrix.callimatrix_show()
     basic.clearScreen()
 })
 KY040.onTurned(direction.clockwise, function () {
