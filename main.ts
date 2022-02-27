@@ -1,10 +1,11 @@
 KY040.OnPinPressed(DigitalPin.P14, function () {
     basic.showIcon(IconNames.No)
     for (let index = 0; index <= 7; index++) {
-        callimatrix.SetMatrixColorbright(0xffff00, index, Pos, cbrightness.hp2)
+        callimatrix.SetMatrixColorbright(0xffff00, index + 1, Pos, cbrightness.hp2)
+        callimatrix.callimatrix_show()
+        basic.pause(500)
     }
     basic.pause(200)
-    callimatrix.callimatrix_show()
     basic.clearScreen()
 })
 KY040.onTurned(direction.clockwise, function () {
@@ -33,10 +34,15 @@ callimatrix.callimatrix_del()
 Pos = 0
 callimatrix.SetMatrixColorbright(0x00ff00, 0, 0, cbrightness.hp25)
 callimatrix.callimatrix_show()
+let Enemy = randint(0, 7)
 basic.pause(1000)
 basic.forever(function () {
-    callimatrix.SetMatrixColorbright(0xff0000, 0, Pos, cbrightness.hp6)
+    callimatrix.SetMatrixColorbright(0x000000, 0, Pos + 1, cbrightness.hp6)
+    callimatrix.SetMatrixColorbright(0x000000, 0, Pos - 1, cbrightness.hp6)
+    callimatrix.SetMatrixColorbright(0x00ff00, 0, Pos, cbrightness.hp6)
     callimatrix.callimatrix_show()
-    callimatrix.callimatrix_del()
+})
+control.inBackground(function () {
+    callimatrix.SetMatrixColorbright(0xff0000, 7, Enemy)
     callimatrix.callimatrix_show()
 })
