@@ -5,7 +5,8 @@
         "core": "*",
         "radio": "*",
         "microphone": "*",
-        "pxt-ky-040": "github:MKleinSB/pxt-KY-040#v1.0.4"
+        "pxt-ky-040": "github:MKleinSB/pxt-KY-040#v1.0.4",
+        "pxt-callimatrix8x8": "github:MKleinSB/pxt-Callimatrix8x8#v0.2.1"
     },
     "files": [
         "main.blocks",
