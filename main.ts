@@ -1,5 +1,5 @@
 KY040.OnPinPressed(DigitalPin.P14, function () {
-    basic.showIcon(IconNames.No)
+    basic.showIcon(IconNames.Sword)
     for (let index = 0; index <= 7; index++) {
         callimatrix.SetMatrixColorbright(0xffff00, index + 1, Pos, cbrightness.hp2)
         callimatrix.callimatrix_show()
@@ -15,7 +15,6 @@ KY040.OnPinPressed(DigitalPin.P14, function () {
     basic.clearScreen()
 })
 KY040.onTurned(direction.clockwise, function () {
-    basic.showArrow(ArrowNames.East)
     Pos += 1
     if (Pos >= 7) {
         Pos = 7
@@ -32,7 +31,6 @@ function Hit () {
     basic.clearScreen()
 }
 KY040.onTurned(direction.counterclockwise, function () {
-    basic.showArrow(ArrowNames.West)
     Pos += -1
     if (Pos <= 0) {
         Pos = 0
@@ -42,7 +40,7 @@ KY040.onTurned(direction.counterclockwise, function () {
 })
 let Enemy = 0
 let Pos = 0
-basic.showIcon(IconNames.Heart)
+basic.showIcon(IconNames.Angry)
 KY040.setKY040(DigitalPin.P1, DigitalPin.P15)
 callimatrix.initNeoMatrix(DigitalPin.P2)
 callimatrix.callimatrix_del()
