@@ -1,3 +1,20 @@
+/**
+ * TO DO
+ * 
+ * ----------
+ * 
+ * ADD SCORING
+ * 
+ * add sound
+ * 
+ * enemy movement
+ * 
+ * enemy time limit
+ * 
+ * bonus ships?
+ * 
+ * 2 player / 2 bits?
+ */
 KY040.OnPinPressed(DigitalPin.P14, function () {
     Shoot()
 })
