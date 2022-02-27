@@ -53,12 +53,6 @@ basic.forever(function () {
     callimatrix.SetMatrixColorbright(0x00ff00, 0, Pos, cbrightness.hp6)
     callimatrix.callimatrix_show()
 })
-basic.forever(function () {
-    callimatrix.SetMatrixColorbright(0x000000, 0, Pos + 1, cbrightness.hp6)
-    callimatrix.SetMatrixColorbright(0x000000, 0, Pos - 1, cbrightness.hp6)
-    callimatrix.SetMatrixColorbright(0x00ff00, 0, Pos, cbrightness.hp6)
-    callimatrix.callimatrix_show()
-})
 control.inBackground(function () {
     callimatrix.SetMatrixColorbright(0xff0000, 7, Enemy)
     callimatrix.callimatrix_show()
